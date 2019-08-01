@@ -83,8 +83,8 @@ class TodoController extends Controller
    public function editAction( $id, Request $request){
 
     /* Here we have a variable todo and it will save the result of this search and it will be one result because we search based on a specific id */
-       $todo = $this->getDoctrine()->getRepository('AppBundle:Todo')->find($id);
-    $now = new\DateTime('now');
+        $todo = $this->getDoctrine()->getRepository('AppBundle:Todo')->find($id);
+        $now = new\DateTime('now');
     
     /* Now we will use set functions and inside this set functions we will bring the value that is already exist using get function for example we have setName() and inside it we will bring the current value and use it again */
                             $todo->setName($todo->getName());
@@ -99,8 +99,8 @@ class TodoController extends Controller
            ->add('category', TextType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-bottom:15px')))
            ->add('description', TextareaType::class, array('attr' => array('class'=> 'form-control', 'style'=>'margin-botton:15px')))
            ->add('priority', ChoiceType::class, array('choices'=>array('Low'=>'Low', 'Normal'=>'Normal', 'High'=>'High'),'attr' => array('class'=> 'form-control', 'style'=>'margin-botton:15px')))
-       ->add('due_date', DateTimeType::class, array('attr' => array('style'=>'margin-bottom:15px')))
-       ->add('save', SubmitType::class, array('label'=> 'Update Todo', 'attr' => array('class'=> 'btn-primary', 'style'=>'margin-botton:15px')))
+            ->add('due_date', DateTimeType::class, array('attr' => array('style'=>'margin-bottom:15px')))
+            ->add('save', SubmitType::class, array('label'=> 'Update Todo', 'attr' => array('class'=> 'btn-primary', 'style'=>'margin-botton:15px')))
            ->getForm();
            $form->handleRequest($request);
            if($form->isSubmitted() && $form->isValid()){
